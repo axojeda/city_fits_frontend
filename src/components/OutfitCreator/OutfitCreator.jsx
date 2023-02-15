@@ -1,6 +1,6 @@
 import './OutfitCreator.scss';
-import {useState, useEffect } from "react";
-import ProductList from "./ProductList";
+import { useState, useEffect } from 'react';
+import ProductList from './ProductList';
 import OutfitForm from './OutfitForm/OutfitForm';
 
 

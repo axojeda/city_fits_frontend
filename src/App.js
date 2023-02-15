@@ -5,7 +5,7 @@ import OutfitCreator from './components/OutfitCreator/OutfitCreator'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import Home from './components/Home/Home';
 import LogIn from './components/LogIn/LogIn';
-import OutfitMap from './components/OutfitMap/OutfitMap';
+import OutfitMap from './components/OutfitMapPage/OutfitMap';
 import './components/Home/Home.scss'
 
 
