@@ -1,8 +1,8 @@
 import './OutfitForm.scss'
 import { useState } from "react"
 
-export default function OutfitForm({outfitFormTop}) {
-  console.log(outfitFormTop)
+export default function OutfitForm({outfitFormTop, outfitFormBottom, outfitFormShoes}) {
+  // console.log('oufitForm', outfitFormTop)
 
   
   
@@ -12,20 +12,20 @@ export default function OutfitForm({outfitFormTop}) {
       <div className='saved-outfit'>
         <div className='box'>
         <span className='imgBox'>
-          <picture ><img className="productcard-form" src={outfitFormTop[0]} /></picture>
+          <picture ><img className="productcard-form" src={outfitFormTop.link} /></picture>
         </span>
         </div>
             
             <div className='box'>
         <span className='imgBox'>
-          <picture ><img className="productcard-form" src="https://images.urbndata.com/is/image/FreePeople/82717968_000_a/?$a15-pdp-detail-shot$&fit=constrain&fmt=webp&qlt=80&wid=1080" /></picture>
+          <picture ><img className="productcard-form" src={outfitFormBottom.link} /></picture>
         </span>
         </div>
             
 
             <div className='box'>
         <span className='imgBox'>
-          <picture ><img className="productcard-form" src="https://images.urbndata.com/is/image/FreePeople/56313224_111_c/?$a15-pdp-detail-shot$&fit=constrain&fmt=webp&qlt=80&wid=1080"></img></picture>						
+          <picture ><img className="productcard-form" src={outfitFormShoes.link}></img></picture>						
         </span>
         </div>
       </div>

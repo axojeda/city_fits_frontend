@@ -9,7 +9,9 @@ function OutfitCreator() {
       // ella setting state for fetched products
   const [products, setProducts] = useState([])
   const [outfitFormTop, setOutfitFormTop] = useState([]);
-  //changed the useState to {} for the object
+  //changed the useState to {} for the object???
+  const [outfitFormBottom, setOutfitFormBottom] = useState([]);
+  const [outfitFormShoes, setOutfitFormShoes] = useState([])
 
   //ella adding in fetch for rendering products
   useEffect(() => {
@@ -19,21 +21,19 @@ function OutfitCreator() {
       setProducts(productData))
   }, [])
 
-  //we got handleAddTop from the ProductList props, with the parameter (topToAdd), which is (product) 
-  function handleAddTop(topToAdd) {
-    // console.log(topToAdd) will consolelog the link, name, category, style and link of the picture
-    //Then we create a variable topInForm that first, because there is no Top rendered in the OutfitForm
-    //which translates to (!topInForm) it will then setOutfitFormTop to topToAdd
-    //which is the object of all the info about the picture clicked
-    //Now that the outfitFormTop is set to topToAdd, topInFom now becomes
-    //true. topInForm is the 
-    const topInForm = outfitFormTop.find(
-      (displayTops) => displayTops.link === topToAdd
-    );
-    if (!topInForm) {
-      setOutfitFormTop([...outfitFormTop, topToAdd]);
-    }
+  //we got handleAddTop from the ProductList props, with the parameter (productToAdd), which is (product) 
+  function handleAddProduct(topClick, bottomClick, shoeClick) {
+    //handleAddTop(productToAdd) is a function that is initiated when the user clicks on a product card
+    //The object of this product is saved as an argument to the paramater (productToAdd)
+    //So this function now has the product object it needs to add to the product.link in the form.
+    setOutfitFormTop(topClick)
+    setOutfitFormBottom(bottomClick)
+    setOutfitFormShoes(shoeClick)
+    // setOutfitFormBottom(productToAdd)
+    // setOutfitFormShoes(productToAdd)
   }
+
+  
 
 
 const displayTops = products.filter((product) => {
@@ -54,9 +54,15 @@ const displayShoes = products.filter((product) => {
         displayTops={displayTops} 
         displayBottoms={displayBottoms} 
         displayShoes={displayShoes}
-        onAddTop={handleAddTop}
+        onAddProduct={handleAddProduct}
+        // setOutfitFormTop={setOutfitFormTop}
         />
-        <OutfitForm outfitFormTop={outfitFormTop} />
+        <OutfitForm 
+        outfitFormTop={outfitFormTop}
+        outfitFormBottom={outfitFormBottom}
+        outfitFormShoes={outfitFormShoes}
+       
+         />
         
         </>
     )
@@ -64,4 +70,4 @@ const displayShoes = products.filter((product) => {
 
 export default OutfitCreator 
 
-//onAddTop is recieved from ProductList so we can use it in OutfitCreator as handleAddTop
+//onAddProduct is recieved from ProductList so we can use it in OutfitCreator as handleAddTop
