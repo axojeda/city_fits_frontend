@@ -2,6 +2,8 @@ import './OutfitForm.scss'
 import { useState } from "react"
 
 export default function OutfitForm({outfitFormTop}) {
+  console.log(outfitFormTop)
+
   
   
 

@@ -9,6 +9,7 @@ function OutfitCreator() {
       // ella setting state for fetched products
   const [products, setProducts] = useState([])
   const [outfitFormTop, setOutfitFormTop] = useState([]);
+  //changed the useState to {} for the object
 
   //ella adding in fetch for rendering products
   useEffect(() => {
@@ -18,8 +19,14 @@ function OutfitCreator() {
       setProducts(productData))
   }, [])
 
+  //we got handleAddTop from the ProductList props, with the parameter (topToAdd), which is (product) 
   function handleAddTop(topToAdd) {
-    // console.log(topToAdd)
+    // console.log(topToAdd) will consolelog the link, name, category, style and link of the picture
+    //Then we create a variable topInForm that first, because there is no Top rendered in the OutfitForm
+    //which translates to (!topInForm) it will then setOutfitFormTop to topToAdd
+    //which is the object of all the info about the picture clicked
+    //Now that the outfitFormTop is set to topToAdd, topInFom now becomes
+    //true. topInForm is the 
     const topInForm = outfitFormTop.find(
       (displayTops) => displayTops.link === topToAdd
     );
@@ -56,3 +63,5 @@ const displayShoes = products.filter((product) => {
 }
 
 export default OutfitCreator 
+
+//onAddTop is recieved from ProductList so we can use it in OutfitCreator as handleAddTop
