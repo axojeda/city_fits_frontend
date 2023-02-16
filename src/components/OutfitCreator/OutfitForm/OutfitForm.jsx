@@ -1,7 +1,8 @@
 import './OutfitForm.scss'
 import { useState } from "react"
 
-export default function OutfitForm() {
+export default function OutfitForm({outfitFormTop}) {
+  
   
 
   return (
@@ -9,7 +10,7 @@ export default function OutfitForm() {
       <div className='saved-outfit'>
         <div className='box'>
         <span className='imgBox'>
-          <picture ><img className="productcard-form" src="https://images.urbndata.com/is/image/FreePeople/80826902_266_a/?$a15-pdp-detail-shot$&fit=constrain&fmt=webp&qlt=80&wid=720" /></picture>
+          <picture ><img className="productcard-form" src={outfitFormTop[0]} /></picture>
         </span>
         </div>
             

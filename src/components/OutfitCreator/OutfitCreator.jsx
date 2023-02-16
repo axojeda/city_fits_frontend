@@ -8,6 +8,7 @@ function OutfitCreator() {
 
       // ella setting state for fetched products
   const [products, setProducts] = useState([])
+  const [outfitFormTop, setOutfitFormTop] = useState([]);
 
   //ella adding in fetch for rendering products
   useEffect(() => {
@@ -16,6 +17,16 @@ function OutfitCreator() {
     .then(productData =>
       setProducts(productData))
   }, [])
+
+  function handleAddTop(topToAdd) {
+    // console.log(topToAdd)
+    const topInForm = outfitFormTop.find(
+      (displayTops) => displayTops.link === topToAdd
+    );
+    if (!topInForm) {
+      setOutfitFormTop([...outfitFormTop, topToAdd]);
+    }
+  }
 
 
 const displayTops = products.filter((product) => {
@@ -33,9 +44,13 @@ const displayShoes = products.filter((product) => {
     return (
         <>
         <ProductList 
-        displayTops={displayTops} displayBottoms={displayBottoms} displayShoes={displayShoes}
+        displayTops={displayTops} 
+        displayBottoms={displayBottoms} 
+        displayShoes={displayShoes}
+        onAddTop={handleAddTop}
         />
-        <OutfitForm />
+        <OutfitForm outfitFormTop={outfitFormTop} />
+        
         </>
     )
 }

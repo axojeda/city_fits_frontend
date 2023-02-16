@@ -2,8 +2,11 @@ import ProductCard from "./ProductCard";
 import Slider from "react-slick";
 
 
- function ProductList ({ displayTops, displayBottoms, displayShoes }) {
+ function ProductList ({ displayTops, displayBottoms, displayShoes, onAddTop }) {
     //products is passed as a prop. so far we can access each product as an object.
+    //onAddTop is passed as a prop from OutfitCreator
+
+
 
     let settings = {
         dots: true,
@@ -15,10 +18,15 @@ import Slider from "react-slick";
 
     return (
     <div>
-        <div className="cards">
+        <div className="cards" >
             <Slider {...settings}>
                 {displayTops.map(top => {
-                return <ProductCard key={top.id} product={top}/>
+                return <ProductCard 
+                key={top.id} 
+                product={top}
+                onAddTop={onAddTop}
+                />
+                
                     })
                 }
           </Slider>
