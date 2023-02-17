@@ -2,9 +2,12 @@ import './OutfitForm.scss'
 import { useState } from "react"
 
 export default function OutfitForm({outfitFormTop, outfitFormBottom, outfitFormShoes}) {
-  // console.log('oufitForm', outfitFormTop)
+  const topLink = outfitFormTop.link
+  const bottomLink = outfitFormBottom.link
+  const shoesLink = outfitFormShoes.link
 
-  
+
+
   
 
   return (
@@ -12,20 +15,20 @@ export default function OutfitForm({outfitFormTop, outfitFormBottom, outfitFormS
       <div className='saved-outfit'>
         <div className='box'>
         <span className='imgBox'>
-          <picture ><img className="productcard-form" src={outfitFormTop.link} /></picture>
+          <picture ><img className="productcard-form" src={topLink} /></picture>
         </span>
         </div>
             
             <div className='box'>
         <span className='imgBox'>
-          <picture ><img className="productcard-form" src={outfitFormBottom.link} /></picture>
+          <picture ><img className="productcard-form" src={bottomLink} /></picture>
         </span>
         </div>
             
 
             <div className='box'>
         <span className='imgBox'>
-          <picture ><img className="productcard-form" src={outfitFormShoes.link}></img></picture>						
+          <picture ><img className="productcard-form" src={shoesLink}></img></picture>						
         </span>
         </div>
       </div>
@@ -60,14 +63,3 @@ export default function OutfitForm({outfitFormTop, outfitFormBottom, outfitFormS
     </div>
   );
 }
-
-      // <form onSubmit={handleSubmit}>
-      //   <input
-      //     type="text"
-      //     name="name"
-      //     placeholder="Outfit name"
-      //     value={name}
-      //     onChange={(e) => setNewOutfitName(e.target.value)}
-      //   />
-      //   <button type="save">Save Outfit</button>
-      // </form>

@@ -8,10 +8,9 @@ function OutfitCreator() {
 
       // ella setting state for fetched products
   const [products, setProducts] = useState([])
-  const [outfitFormTop, setOutfitFormTop] = useState([]);
-  //changed the useState to {} for the object???
-  const [outfitFormBottom, setOutfitFormBottom] = useState([]);
-  const [outfitFormShoes, setOutfitFormShoes] = useState([])
+  const [outfitFormTop, setOutfitFormTop] = useState({});
+  const [outfitFormBottom, setOutfitFormBottom] = useState({});
+  const [outfitFormShoes, setOutfitFormShoes] = useState({})
 
   //ella adding in fetch for rendering products
   useEffect(() => {
@@ -20,20 +19,6 @@ function OutfitCreator() {
     .then(productData =>
       setProducts(productData))
   }, [])
-
-  //we got handleAddTop from the ProductList props, with the parameter (productToAdd), which is (product) 
-  function handleAddProduct(topClick, bottomClick, shoeClick) {
-    //handleAddTop(productToAdd) is a function that is initiated when the user clicks on a product card
-    //The object of this product is saved as an argument to the paramater (productToAdd)
-    //So this function now has the product object it needs to add to the product.link in the form.
-    setOutfitFormTop(topClick)
-    setOutfitFormBottom(bottomClick)
-    setOutfitFormShoes(shoeClick)
-    // setOutfitFormBottom(productToAdd)
-    // setOutfitFormShoes(productToAdd)
-  }
-
-  
 
 
 const displayTops = products.filter((product) => {
@@ -54,8 +39,9 @@ const displayShoes = products.filter((product) => {
         displayTops={displayTops} 
         displayBottoms={displayBottoms} 
         displayShoes={displayShoes}
-        onAddProduct={handleAddProduct}
-        // setOutfitFormTop={setOutfitFormTop}
+        setOutfitFormTop={setOutfitFormTop}
+        setOutfitFormBottom={setOutfitFormBottom}
+        setOutfitFormShoes={setOutfitFormShoes}
         />
         <OutfitForm 
         outfitFormTop={outfitFormTop}
@@ -70,4 +56,3 @@ const displayShoes = products.filter((product) => {
 
 export default OutfitCreator 
 
-//onAddProduct is recieved from ProductList so we can use it in OutfitCreator as handleAddTop

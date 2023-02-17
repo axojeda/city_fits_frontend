@@ -2,11 +2,8 @@ import ProductCard from "./ProductCard";
 import Slider from "react-slick";
 
 
- function ProductList ({ displayTops, displayBottoms, displayShoes, onAddProduct }) {
+ function ProductList ({ displayTops, displayBottoms, displayShoes, setOutfitFormTop, setOutfitFormBottom, setOutfitFormShoes }) {
     //ella: displayTops/Bottoms/Shoes is products filtered out to seperate them into categories. Now we can map them here
-    //ella: onAddProduct is passed from ProductCard as a carrier of the paramater(products)
-
-
 
     let settings = {
         dots: true,
@@ -24,7 +21,7 @@ import Slider from "react-slick";
                 return <ProductCard 
                 key={top.id} 
                 product={top}
-                onAddProduct={onAddProduct}
+                setProduct={setOutfitFormTop}
                 
                 />
                 
@@ -42,7 +39,7 @@ import Slider from "react-slick";
                 return <ProductCard 
                 key={bottom.id} 
                 product={bottom}
-                onAddProduct={onAddProduct}
+                setProduct={setOutfitFormBottom}
                 
                 
                 />
@@ -56,16 +53,13 @@ import Slider from "react-slick";
                 return <ProductCard 
                 key={shoe.id} 
                 product={shoe}
-                onAddProduct={onAddProduct}
+                setProduct={setOutfitFormShoes}
                 
                 />
                     })
             }
             </Slider>
         </div>
-        console.log(top)
-        console.log(bottom)
-        console.log(shoe)
     </div>
 
     
